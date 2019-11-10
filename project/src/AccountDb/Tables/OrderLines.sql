@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [sales].[OrderLines]
 (
-	[OrderLineId] BIGINT NOT NULL PRIMARY KEY IDENTITY, 
+    [OrderLineId] BIGINT NOT NULL PRIMARY KEY IDENTITY, 
     [OrderId] BIGINT NOT NULL, 
     [PriceItemId] BIGINT NOT NULL, 
     [Count] INT NOT NULL, 

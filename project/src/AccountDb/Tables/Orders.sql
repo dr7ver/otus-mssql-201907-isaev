@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [sales].[Orders]
 (
-	[OrderId] BIGINT NOT NULL PRIMARY KEY IDENTITY, 
+    [OrderId] BIGINT NOT NULL PRIMARY KEY IDENTITY, 
     [Number] NVARCHAR(10) NOT NULL unique, 
     [Name] NVARCHAR(100) NOT NULL, 
     [PdfContent] VARBINARY(max) NOT NULL, 

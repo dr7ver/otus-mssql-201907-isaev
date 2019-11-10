@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [sales].[PriceItems]
 (
-	[PriceItemId] BIGINT NOT NULL PRIMARY KEY IDENTITY , 
+    [PriceItemId] BIGINT NOT NULL PRIMARY KEY IDENTITY , 
     [CrmId] NVARCHAR(40) NOT NULL, 
     [Name] NVARCHAR(100) NOT NULL, 
     [ShortName] NVARCHAR(50) NOT NULL, 

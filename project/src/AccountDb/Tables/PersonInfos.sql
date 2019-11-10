@@ -1,8 +1,8 @@
 ﻿CREATE TABLE [orgs].[PersonInfos]
 (
-	[OrganizationId] BIGINT NOT NULL PRIMARY KEY, 
+    [OrganizationId] BIGINT NOT NULL PRIMARY KEY, 
     [Inn] NCHAR(12) NOT NULL,
-	[FirstName] NVARCHAR(100) NOT NULL, 
+    [FirstName] NVARCHAR(100) NOT NULL, 
     [LastName] NVARCHAR(100) NOT NULL, 
     [MiddleName] NVARCHAR(100) NULL, 
     [OgrnIp] NCHAR(15) NOT NULL, 

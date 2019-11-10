@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [orgs].[Packages]
 (
-	[PackageId] BIGINT NOT NULL PRIMARY KEY IDENTITY , 
+    [PackageId] BIGINT NOT NULL PRIMARY KEY IDENTITY , 
     [OrganizationId] BIGINT NOT NULL, 
     [ServiceId] BIGINT NOT NULL, 
     [StartDate] DATETIME NOT NULL, 
