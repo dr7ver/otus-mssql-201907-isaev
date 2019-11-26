@@ -5,7 +5,7 @@
     [Name] NVARCHAR(100) NOT NULL, 
     [PdfContent] VARBINARY(max) NOT NULL, 
     [UserId] BIGINT NOT NULL, 
-    [State] TINYINT NOT NULL DEFAULT 0, 
+    [State] TINYINT NOT NULL DEFAULT 0, -- 0 - новый, 1 - в обработке, 2 - оплачен
     CONSTRAINT [FK_Orders_ToUsers] FOREIGN KEY ([UserId]) REFERENCES [orgs].[Users]([UserId])
     
 )

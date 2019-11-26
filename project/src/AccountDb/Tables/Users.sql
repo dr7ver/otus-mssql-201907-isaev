@@ -5,5 +5,5 @@
     [LastName] NVARCHAR(100) NOT NULL, 
     [MiddleName] NVARCHAR(100) NULL, 
     [MobilePhone] NCHAR(10) NULL, 
-    [State] TINYINT NOT NULL DEFAULT 0
+    [State] TINYINT NOT NULL DEFAULT 0 -- 0 - активный, 1 - новый, 2 - неактивный, 3 - удален
 )
