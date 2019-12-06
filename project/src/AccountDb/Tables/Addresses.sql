@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [orgs].[Addresses]
 (
-    [AddressId] BIGINT NOT NULL PRIMARY KEY, 
+    [AddressId] BIGINT NOT NULL PRIMARY KEY IDENTITY, 
     [PostIndex] NCHAR(6) NULL, 
     [RegionCode] TINYINT NULL, 
     [Area] NVARCHAR(128) NULL, 

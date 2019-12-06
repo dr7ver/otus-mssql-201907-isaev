@@ -10,3 +10,15 @@
     CONSTRAINT [FK_OrderLine_ToOrders] FOREIGN KEY ([OrderId]) REFERENCES [sales].[Orders]([OrderId]), 
     CONSTRAINT [FK_OrderLine_ToOrganizations] FOREIGN KEY ([RelatedOrganizationId]) REFERENCES [orgs].[Organizations]([OrganizationId])
 )
+
+GO
+
+CREATE INDEX [IX_OrderLines_OrderId] ON [sales].[OrderLines] ([OrderId])
+
+GO
+
+CREATE INDEX [IX_OrderLines_PriceItemId] ON [sales].[OrderLines] ([PriceItemId])
+
+GO
+
+CREATE INDEX [IX_OrderLines_RelatedOrganizationId] ON [sales].[OrderLines] ([RelatedOrganizationId])

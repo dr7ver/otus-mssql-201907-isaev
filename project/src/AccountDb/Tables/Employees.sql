@@ -9,3 +9,12 @@
     CONSTRAINT [FK_Employees_ToOrganizations] FOREIGN KEY ([OrganizationId]) REFERENCES [orgs].[Organizations]([OrganizationId]),
     CONSTRAINT [FK_Employees_ToUsers] FOREIGN KEY ([UserId]) REFERENCES [orgs].[Users]([UserId])
 )
+
+GO
+
+CREATE INDEX [IX_Employees_OrganizationId] ON [orgs].[Employees] ([OrganizationId])
+
+GO
+
+CREATE INDEX [IX_Employees_UserId] ON [orgs].[Employees] ([UserId])
+

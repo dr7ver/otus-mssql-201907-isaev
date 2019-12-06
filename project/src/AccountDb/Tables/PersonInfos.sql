@@ -7,5 +7,8 @@
     [MiddleName] NVARCHAR(100) NULL, 
     [OgrnIp] NCHAR(15) NOT NULL, 
     CONSTRAINT [FK_PersonInfos_Toorganizations] FOREIGN KEY ([OrganizationId]) REFERENCES [orgs].[Organizations]([OrganizationId])
-
 )
+
+GO
+
+CREATE INDEX [IX_PersonInfos_Inn] ON [orgs].[PersonInfos] ([Inn])

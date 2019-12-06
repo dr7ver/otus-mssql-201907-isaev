@@ -8,3 +8,7 @@
     [Ogrn] NCHAR(13) NOT NULL
     CONSTRAINT [FK_CompanyInfos_ToOrganizations] FOREIGN KEY ([OrganizationId]) REFERENCES [orgs].[Organizations]([OrganizationId])
 )
+
+GO
+
+CREATE INDEX [IX_CompanyInfos_Inn] ON [orgs].[CompanyInfos] ([Inn], [Kpp])

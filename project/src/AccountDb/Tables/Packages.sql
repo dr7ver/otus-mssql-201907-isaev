@@ -9,3 +9,11 @@
     CONSTRAINT [FK_Packages_ToOrganizations] FOREIGN KEY ([OrganizationId]) REFERENCES [orgs].[Organizations]([OrganizationId]), 
     CONSTRAINT [FK_Packages_ToServices] FOREIGN KEY ([PriceItemId]) REFERENCES [sales].[PriceItems]([PriceItemId]) 
 )
+
+GO
+
+CREATE INDEX [IX_Packages_OrganizationId] ON [orgs].[Packages] ([OrganizationId])
+
+GO
+
+CREATE INDEX [IX_Packages_PriceItemId] ON [orgs].[Packages] ([PriceItemId])

@@ -7,3 +7,11 @@
     CONSTRAINT [FK_Permissions_ToEmployees] FOREIGN KEY ([EmployeeId]) REFERENCES [orgs].[Employees]([EmployeeId]),
     CONSTRAINT [FK_Permissions_ToServices] FOREIGN KEY ([ServiceId]) REFERENCES [sales].[Services]([ServiceId])
 )
+
+GO
+
+CREATE INDEX [IX_Permissions_EmployeeId] ON [orgs].[Permissions] ([EmployeeId])
+
+GO
+
+CREATE INDEX [ServiceId] ON [orgs].[Permissions] ([ServiceId])
