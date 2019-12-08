@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[OrdersDocuments]
+﻿CREATE TABLE [sales].[OrdersDocuments]
 (
 	[OrderId] BIGINT NOT NULL PRIMARY KEY,
 	[OrderPdf] VARBINARY(max) NOT NULL,
