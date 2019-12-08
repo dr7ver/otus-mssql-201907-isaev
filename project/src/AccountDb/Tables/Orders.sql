@@ -1,19 +1,15 @@
 ﻿CREATE TABLE [sales].[Orders]
 (
     [OrderId] BIGINT NOT NULL PRIMARY KEY IDENTITY, 
-    [PrefixNumber] NVARCHAR(5) NOT NULL, 
-	[OrdinalNumber] nvarchar(6) NOT NULL,
-	[Number] nvarchar(15) NOT NULL,
+    [PrefixNumber] NVARCHAR(5) NOT NULL, -- Префикс уникального номера. Обозначает систему в которой генерируется заказ
+	[OrdinalNumber] NVARCHAR(7) NOT NULL, -- Порядковый номер указанного префикса в одном календарном годе
+	[Number] NVARCHAR(15) NOT NULL, --Уникальный номер заказа вида <Префикс><Год (YY)><Порядковый номер> Нарпимер AA190001234
     [Name] NVARCHAR(100) NOT NULL, 
     [UserId] BIGINT NOT NULL, 
 	[CreateDate] datetime NOT NULL,
     [State] TINYINT NOT NULL DEFAULT 0, -- 0 - новый, 1 - в обработке, 2 - оплачен
-	[SysStart] DATETIME2 (7) GENERATED ALWAYS AS ROW START NOT NULL,
-	[SysEnd] DATETIME2 (7) GENERATED ALWAYS AS ROW END NOT NULL,
-	PERIOD FOR SYSTEM_TIME ([SysStart], [SysEnd]),
     CONSTRAINT [FK_Orders_ToUsers] FOREIGN KEY ([UserId]) REFERENCES [orgs].[Users]([UserId])    
 )
-WITH (SYSTEM_VERSIONING = ON(HISTORY_TABLE=[sales].[Orders_HISTORY], DATA_CONSISTENCY_CHECK=ON))
 
 GO
 

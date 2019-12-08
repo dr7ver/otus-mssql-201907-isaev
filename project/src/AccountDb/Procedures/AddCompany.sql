@@ -15,45 +15,47 @@ BEGIN
 	SET NOCOUNT ON;
 	SET XACT_ABORT ON
 
-	BEGIN TRY
-		BEGIN TRAN
-		INSERT INTO [orgs].[Organizations]
-			   ([RegistrationDate]
-			   ,[State]
-			   ,[ParentOrganizationId]
-			   ,[ContactName]
-			   ,[ContactPhone]
-			   ,[Type])
+	if exists (
+		select 1
+		from orgs.organizations as o
+		join orgs.CompanyInfos as c on o.OrganizationId = c.OrganizationId
+		where c.Inn = @inn and c.Kpp = @Kpp and o.State in (0, 1)
+	)
+	begin
+		print 'Organization alredy registered';
+		throw 60003, 'Organization alredy registered', 1
+	end
+
+	INSERT INTO [orgs].[Organizations]
+			([RegistrationDate]
+			,[State]
+			,[ParentOrganizationId]
+			,[ContactName]
+			,[ContactPhone]
+			,[Type])
+		VALUES
+			(getDate()
+			,@State
+			,@ParentOrganizationId
+			,@ContactName
+			,@ContactPhone
+			,0)
+	SET @ID = SCOPE_IDENTITY()
+
+
+	INSERT INTO [orgs].[CompanyInfos]
+				([OrganizationId]
+				,[Inn]
+				,[Kpp]
+				,[FullName]
+				,[ShortName]
+				,[Ogrn])
 			VALUES
-			   (getDate()
-			   ,@State
-			   ,@ParentOrganizationId
-			   ,@ContactName
-			   ,@ContactPhone
-			   ,0)
-		SET @ID = SCOPE_IDENTITY()
+				(@ID
+				,@Inn
+				,@Kpp
+				,@FullName
+				,@ShortName
+				,@Ogrn)
 
-
-		INSERT INTO [orgs].[CompanyInfos]
-				   ([OrganizationId]
-				   ,[Inn]
-				   ,[Kpp]
-				   ,[FullName]
-				   ,[ShortName]
-				   ,[Ogrn])
-			 VALUES
-				   (@ID
-				   ,@Inn
-				   ,@Kpp
-				   ,@FullName
-				   ,@ShortName
-				   ,@Ogrn)
-
-		commit tran
-
-	END TRY
-	BEGIN CATCH
-		ROLLBACK TRAN
-    
-	END CATCH
 END

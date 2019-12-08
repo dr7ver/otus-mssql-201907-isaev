@@ -91,6 +91,7 @@
     <Build Include="Procedures\AddPermission.sql" />
     <Build Include="Procedures\AddPerson.sql" />
     <Build Include="Procedures\AddAddress.sql" />
+    <Build Include="Procedures\GetUserOrganizations.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="AccountDb.refactorlog" />
